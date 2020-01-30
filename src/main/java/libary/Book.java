@@ -1,17 +1,13 @@
 package libary;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.UUID;
 
 @Entity
 
 @Table(name = "book")
 public class Book implements Serializable {
-
-    private static final long serialVersionUID = 1L;
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -24,11 +20,12 @@ public class Book implements Serializable {
     @Column(name = "price")
     private String price;
 
+
     public String getID() {
         return id;
     }
-    public void setID(String id) {
-        this.id = id;
+    public void setID() {
+        this.id = UUID.randomUUID().toString();
     }
     public void setName(String name) {
         this.name = name;
